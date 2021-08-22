@@ -1,2 +1,5 @@
-# infiniteScrollSwifUI
-infinite Scroll with loading more feature SwiftUI
+SwiftUI example app: InfiniteScroll 
+Infinite scroll project sample with load more feature 
+
+Architecture
+MVVM
