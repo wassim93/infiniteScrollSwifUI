@@ -9,10 +9,7 @@ import Foundation
 
 
 struct Api {
-    static let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing-ipad/all"
+    static let apiKey = "a931337c3727d04f4d98ee98a9cf1f8a"
     
-    
-    static func getUrlFor(resultLimit : Int) -> String {
-        return "\(urlString)/\(resultLimit)/non-explicit.json"
-    }
+   
 }
