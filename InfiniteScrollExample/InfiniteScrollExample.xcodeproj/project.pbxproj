@@ -13,6 +13,7 @@
 		CF12B3BB26D32E560027C98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF12B3BA26D32E560027C98E /* Preview Assets.xcassets */; };
 		CF12B3C626D32E570027C98E /* InfiniteScrollExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF12B3C526D32E570027C98E /* InfiniteScrollExampleTests.swift */; };
 		CF12B3D126D32E570027C98E /* InfiniteScrollExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF12B3D026D32E570027C98E /* InfiniteScrollExampleUITests.swift */; };
+		CF12B3EC26D331790027C98E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF12B3EB26D331790027C98E /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		CF12B3CC26D32E570027C98E /* InfiniteScrollExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfiniteScrollExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF12B3D026D32E570027C98E /* InfiniteScrollExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollExampleUITests.swift; sourceTree = "<group>"; };
 		CF12B3D226D32E570027C98E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF12B3EB26D331790027C98E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,10 @@
 		CF12B3B226D32E4F0027C98E /* InfiniteScrollExample */ = {
 			isa = PBXGroup;
 			children = (
+				CF12B3EA26D330FB0027C98E /* Views */,
+				CF12B3E926D330ED0027C98E /* ViewModel */,
+				CF12B3E826D330E10027C98E /* Models */,
+				CF12B3E726D330D40027C98E /* Networking */,
 				CF12B3B326D32E4F0027C98E /* InfiniteScrollExampleApp.swift */,
 				CF12B3B526D32E4F0027C98E /* ContentView.swift */,
 				CF12B3B726D32E560027C98E /* Assets.xcassets */,
@@ -128,6 +134,35 @@
 				CF12B3D226D32E570027C98E /* Info.plist */,
 			);
 			path = InfiniteScrollExampleUITests;
+			sourceTree = "<group>";
+		};
+		CF12B3E726D330D40027C98E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CF12B3EB26D331790027C98E /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CF12B3E826D330E10027C98E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CF12B3E926D330ED0027C98E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CF12B3EA26D330FB0027C98E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF12B3EC26D331790027C98E /* NetworkManager.swift in Sources */,
 				CF12B3B626D32E4F0027C98E /* ContentView.swift in Sources */,
 				CF12B3B426D32E4F0027C98E /* InfiniteScrollExampleApp.swift in Sources */,
 			);
