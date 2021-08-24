@@ -18,6 +18,8 @@
 		CF81A19A26D45EC30015B9A0 /* ApiExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81A19926D45EC30015B9A0 /* ApiExtension.swift */; };
 		CF81A19C26D45F680015B9A0 /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81A19B26D45F680015B9A0 /* TvShow.swift */; };
 		CF81A19E26D4626A0015B9A0 /* TvResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81A19D26D4626A0015B9A0 /* TvResponse.swift */; };
+		CF81A1A226D464940015B9A0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81A1A126D464940015B9A0 /* HeaderView.swift */; };
+		CF81A1A426D47F4C0015B9A0 /* TvShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF81A1A326D47F4C0015B9A0 /* TvShowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		CF81A19926D45EC30015B9A0 /* ApiExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiExtension.swift; sourceTree = "<group>"; };
 		CF81A19B26D45F680015B9A0 /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
 		CF81A19D26D4626A0015B9A0 /* TvResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvResponse.swift; sourceTree = "<group>"; };
+		CF81A1A126D464940015B9A0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		CF81A1A326D47F4C0015B9A0 /* TvShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 		CF12B3EA26D330FB0027C98E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF81A1A126D464940015B9A0 /* HeaderView.swift */,
+				CF81A1A326D47F4C0015B9A0 /* TvShowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +319,8 @@
 				CF81A19A26D45EC30015B9A0 /* ApiExtension.swift in Sources */,
 				CF12B3F426D336240027C98E /* Api.swift in Sources */,
 				CF12B3B426D32E4F0027C98E /* InfiniteScrollExampleApp.swift in Sources */,
+				CF81A1A226D464940015B9A0 /* HeaderView.swift in Sources */,
+				CF81A1A426D47F4C0015B9A0 /* TvShowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

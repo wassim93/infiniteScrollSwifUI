@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State  var search = ""
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            HeaderView(searchText: $search)
+            ScrollView{
+                TvShowView()
+
+            }
+        }
+       
+
+        
     }
 }
 
