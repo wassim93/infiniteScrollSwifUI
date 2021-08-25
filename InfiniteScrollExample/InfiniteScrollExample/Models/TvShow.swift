@@ -13,12 +13,14 @@ struct TvShow: Codable,Identifiable {
     var poster_path: String
     var first_air_date: String
     var vote_average: Double
+    var overview: String
     
     enum CodingKey : String {
         case original_name
         case poster_path
         case first_air_date
         case vote_average
+        case overview
     }
     
     init() {
@@ -26,6 +28,7 @@ struct TvShow: Codable,Identifiable {
         poster_path = ""
         first_air_date = ""
         vote_average = 0.0
+        overview = ""
     }
 }
 

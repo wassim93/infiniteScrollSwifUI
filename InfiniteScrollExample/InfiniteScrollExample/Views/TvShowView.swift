@@ -26,6 +26,11 @@ struct TvShowView: View {
                                 .font(.title3).fontWeight(.bold)
                                 .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                                 .foregroundColor(.black)
+                            Text("\(tvshow.overview)")
+                                .font(.caption).fontWeight(.regular)
+                                .foregroundColor(.gray)
+                                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                                .lineLimit(4)
 
                             Text("Release Date: \(tvshow.first_air_date)")
                                 .font(.caption2).fontWeight(.semibold)
