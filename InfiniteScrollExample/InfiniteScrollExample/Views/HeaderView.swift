@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var searchText:String
-    @State private var isEditing = false
+    @State var searchText:String
+    @ObservedObject var tvShowVM : TvShowViewModel
 
     
     var body: some View {
@@ -44,6 +44,6 @@ struct HeaderView_Previews: PreviewProvider {
 
     static var previews: some View {
         //HeaderView(searchText: $search)
-        ContentView()
+        ContentView(tvShowVM: TvShowViewModel())
     }
 }

@@ -6,38 +6,49 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct TvShowView: View {
+    @ObservedObject var tvShowVM : TvShowViewModel
+    var adaptiveLayout = [GridItem(.adaptive(minimum: 100))]
+    
+    
     var body: some View {
-        LazyVGrid(columns: [
-            GridItem(.flexible(minimum: 120, maximum: 200), spacing: 0),
-            GridItem(.flexible(minimum: 120, maximum: 200), spacing: 0),
-            GridItem(.flexible(minimum: 120, maximum: 200))
+            List{
+                ForEach(tvShowVM.tvResponse.results) { tvshow in
+                    HStack(alignment: .top, spacing: 10){
+                        KFImage(URL(string: Api.getImageFor(path: tvshow.poster_path))!)
+                            .resizable()
+                            .frame(width: 100, height: 150, alignment: .leading)
+                                                    
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("\(tvshow.original_name)")
+                                .font(.title3).fontWeight(.bold)
+                                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(.black)
 
-        ],spacing: 5){
-            ForEach(0..<20,id: \.self){ num in
-                VStack(alignment: .leading){
-                    Spacer()
-                        .frame(width: 115, height: 100)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
-                    Text("\(num)")
-                        .font(.system(size: 10,weight: .regular))
-                        .foregroundColor(.gray)
-                    Text("test2")
-                        .font(.system(size: 9,weight: .regular))
-                        .foregroundColor(.gray)
-                    Text("ok")
-                        .font(.system(size: 9,weight: .regular))
-                        .foregroundColor(.gray)
-                }.background(Color.red)
+                            Text("Release Date: \(tvshow.first_air_date)")
+                                .font(.caption2).fontWeight(.semibold)
+                                .foregroundColor(.gray)
+
+                            Text("Average Note: \(tvshow.vote_average)")
+                                .font(.caption2).fontWeight(.semibold)
+                                .foregroundColor(.gray)
+                            Spacer()                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .topLeading)
+
+                        }.frame(maxWidth: .infinity,maxHeight:.infinity)
+
+                    }
             }
         }
+        
     }
+    
 }
 
 struct TvShowView_Previews: PreviewProvider {
     static var previews: some View {
         //TvShowView()
-        ContentView()
+        ContentView(tvShowVM: TvShowViewModel())
     }
 }

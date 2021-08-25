@@ -9,19 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @State  var search = ""
+    @ObservedObject var tvShowVM = TvShowViewModel()
+
 
     var body: some View {
         VStack{
-            HeaderView(searchText: $search)
-            ScrollView{
-                TvShowView()
-
-            }
+            HeaderView(searchText: search, tvShowVM: tvShowVM)
+            TvShowView(tvShowVM: tvShowVM)
         }
-       
-
         
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

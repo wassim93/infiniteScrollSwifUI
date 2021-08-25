@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct TvShow: Codable {
+struct TvShow: Codable,Identifiable {
     var original_name: String
     var poster_path: String
     var first_air_date: String
@@ -26,5 +26,11 @@ struct TvShow: Codable {
         poster_path = ""
         first_air_date = ""
         vote_average = 0.0
+    }
+}
+
+extension TvShow{
+    var id: UUID{
+        return UUID()
     }
 }

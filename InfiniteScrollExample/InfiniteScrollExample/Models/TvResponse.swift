@@ -28,4 +28,10 @@ struct TvResponse:Codable {
         total_pages = 500
     }
     
+    init(p:Int){
+        page = p
+        results = []
+        total_pages = 500
+    }
+    
 }
