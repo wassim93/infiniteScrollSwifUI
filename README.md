@@ -11,6 +11,7 @@ https://www.themoviedb.org/
 
 Library used 
 Kingfisher for loading images from url
+https://github.com/onevcat/Kingfisher
 
 
 
