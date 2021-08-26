@@ -10,13 +10,20 @@ import Foundation
 
 extension Api{
     
-    static let baseUrl = "https://api.themoviedb.org/3/tv/popular"
+    static let baseUrl = "https://api.themoviedb.org/3"
+    static let popularUrl = "\(baseUrl)/tv/popular"
+    static let searchUrl = "\(baseUrl)/search/tv"
+
     
     static let imageUrl = "https://image.tmdb.org/t/p/w500"
     
     
-    static func getUrlFor(page: Int) -> String {
-        return "\(baseUrl)?api_key=\(apiKey)&page=\(page)"
+    static func getPopularUrl(page: Int) -> String {
+        return "\(popularUrl)?api_key=\(apiKey)&page=\(page)"
+    }
+    
+    static func getSearchUrl(query: String) -> String {
+        return "\(searchUrl)?api_key=\(apiKey)&query=\(query)"
     }
     
     static func getImageFor(path: String) -> String {

@@ -20,6 +20,33 @@ class TvShowViewModel: ObservableObject {
     }
     
     
+    
+    func searchTxt(searchKey:String){
+        self.loading = true
+
+        print(searchKey)
+        if !searchKey.isEmpty {
+            NetworkManager<TvResponse>.fetch(for: URL(string: Api.getSearchUrl(query: searchKey))!) { (result) in
+                switch result{
+                    case .success(let response) :
+                        DispatchQueue.main.async {
+                            self.tvResponse = response
+                            self.loading = false
+                            
+                            //if self.page != self.tvResponse.total_pages{
+                           //     self.page += 1
+                           // }
+                        }
+                    case .failure(let err):
+                        print(err)
+                }
+            }
+        }
+        getTvShows()
+     
+    }
+    
+    
     func getOverviewFor(overview:String) -> String {
         if overview.isEmpty{
             return "No Overview Available"
@@ -43,7 +70,7 @@ class TvShowViewModel: ObservableObject {
     
     func getTvShows(){
         self.loading = true
-        NetworkManager<TvResponse>.fetch(for: URL(string: Api.getUrlFor(page: page))!) { (result) in
+        NetworkManager<TvResponse>.fetch(for: URL(string: Api.getPopularUrl(page: page))!) { (result) in
             switch result{
                 case .success(let response) :
                     DispatchQueue.main.async {

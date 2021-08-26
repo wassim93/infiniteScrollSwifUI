@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @State var searchText:String
+    @State var searchText:String = ""
     @ObservedObject var tvShowVM : TvShowViewModel
 
     
@@ -30,6 +30,9 @@ struct HeaderView: View {
                 .padding(.horizontal,10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
+                .onChange(of: searchText, perform: { value in
+                    tvShowVM.searchTxt(searchKey: value)
+                })
         }.padding([.horizontal],12).overlay(
             Image(systemName: "magnifyingglass")
                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
