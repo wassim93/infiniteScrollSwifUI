@@ -8,42 +8,46 @@
 import SwiftUI
 import Kingfisher
 
+
 struct TvShowView: View {
     @ObservedObject var tvShowVM : TvShowViewModel
-    @State var indexPathToSetVisible : IndexPath?
-
+    
     
     
     var body: some View {
-            List{
-                ForEach(tvShowVM.tvResponse.results) { tvshow in
-                    if tvshow == tvShowVM.tvResponse.results.last{
-                        cellSetup(tv: tvshow, isLoading: true,vm: tvShowVM)
+        ScrollView{
+            LazyVStack{
+                ForEach(tvShowVM.tvResponse.results.indices,id: \.self) { indexTv in
+                    let tvshow = tvShowVM.tvResponse.results[indexTv]
+                    if indexTv == tvShowVM.tvResponse.results.count - 1 {
+                        cellSetup(tv: tvshow, vm: tvShowVM)
                     }else{
                         cellData(tv: tvshow)
                     }
                 }
-            }.overlay(ScrollManagerView(indexPathToSetVisible: $indexPathToSetVisible).allowsHitTesting(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/).frame(width: 0, height: 0))
+            }
+        }
+        .padding(.horizontal)
+        
     }
     
     
-fileprivate func cellSetup(tv:TvShow,isLoading:Bool,vm:TvShowViewModel) -> some View {
-          VStack{
+fileprivate func cellSetup(tv:TvShow,vm:TvShowViewModel) -> some View {
+        VStack{
             cellData(tv: tv)
-            LoaderIndicator(isAnimating: true, style: .large)
-                .frame(width: 50, height: 50,alignment: .center)
-                .onAppear(perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            LoaderIndicator(isAnimating: true, style: .large).frame(width: 50, height: 50,alignment: .center)
+                .onAppear {
+                    print("reach last")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         vm.getTvShows()
                     }
-                })
-          }
-        
+                }
+        }
     }
 }
 
 fileprivate func cellData(tv: TvShow) -> some View{
-     HStack(alignment: .top, spacing: 10){
+    HStack(alignment: .top, spacing: 10){
         KFImage(URL(string: Api.getImageFor(path: tv.poster_path ?? ""))!)
             .resizable()
             .frame(width: 100, height: 150, alignment: .leading)
@@ -71,18 +75,6 @@ fileprivate func cellData(tv: TvShow) -> some View{
     }
 }
 
-
-
-func loaderView(vm:TvShowViewModel) -> some View {
-    HStack{
-        Spacer()
-        LoaderIndicator(isAnimating: vm.loading, style: .large)
-            .frame(width: 50, height: 50,alignment: .center)
-        Spacer()
-        
-    }.padding()
-
-}
 
 struct TvShowView_Previews: PreviewProvider {
     static var previews: some View {
