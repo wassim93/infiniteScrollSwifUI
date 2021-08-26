@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LoaderIndicator: UIViewRepresentable {
     
-    var isAnimating:Bool
+    @Binding var isAnimating:Bool
     let style: UIActivityIndicatorView.Style
     
     func makeUIView(context: UIViewRepresentableContext<LoaderIndicator>) ->  UIActivityIndicatorView {
@@ -19,14 +19,10 @@ struct LoaderIndicator: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<LoaderIndicator>) {
         if isAnimating {
-            uiView.isHidden = false
             uiView.startAnimating()
         }else{
-            uiView.isHidden = true
             uiView.stopAnimating()
         }
     }
-   
-    
-  
 }
+

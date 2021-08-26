@@ -32,14 +32,14 @@ struct TvShowView: View {
     }
     
     
-fileprivate func cellLoader(vm:TvShowViewModel) -> some View {
+     func cellLoader(vm:TvShowViewModel) -> some View {
         VStack{
-            LoaderIndicator(isAnimating: true, style: .large).frame(width: 50, height: 50,alignment: .center)
+            LoaderIndicator(isAnimating: $tvShowVM.loading, style: .large).frame(width: 50, height: 50,alignment: .center)
                 .onAppear {
                     print("reach last")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    //DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         vm.getTvShows()
-                    }
+                    //}
                 }
         }
     }
