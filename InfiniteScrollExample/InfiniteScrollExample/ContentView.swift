@@ -17,7 +17,7 @@ struct ContentView: View {
                 HeaderView(searchText: search, tvShowVM: tvShowVM)
                 TvShowView(tvShowVM: tvShowVM)
             }
-            LoaderIndicator(isAnimating: $tvShowVM.loading, style: .large).frame(width: 50, height: 50,alignment: .center)
+            //LoaderIndicator(isAnimating: $tvShowVM.loading, style: .large).frame(width: 50, height: 50,alignment: .center)
         }
     }
 }

@@ -23,7 +23,12 @@ extension Api{
     }
     
     static func getSearchUrl(query: String) -> String {
-        return "\(searchUrl)?api_key=\(apiKey)&query=\(query)"
+        let urlString = "\(searchUrl)?api_key=\(apiKey)&query=\(query)"
+        
+        let urlNew:String = urlString.replacingOccurrences(of: " ", with: "%20")
+
+
+        return urlNew
     }
     
     static func getImageFor(path: String) -> String {

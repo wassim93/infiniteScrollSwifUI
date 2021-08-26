@@ -23,9 +23,8 @@ class TvShowViewModel: ObservableObject {
     
     func searchTxt(searchKey:String){
         self.loading = true
-
-        print(searchKey)
-        if !searchKey.isEmpty {
+        
+        if !searchKey.isEmpty && searchKey != " " {
             NetworkManager<TvResponse>.fetch(for: URL(string: Api.getSearchUrl(query: searchKey))!) { (result) in
                 switch result{
                     case .success(let response) :
@@ -42,8 +41,17 @@ class TvShowViewModel: ObservableObject {
                 }
             }
         }
+        initialiseData()
         getTvShows()
+
+        
      
+    }
+    
+    
+    func initialiseData(){
+        self.tvResponse = TvResponse()
+        self.page = 1
     }
     
     
