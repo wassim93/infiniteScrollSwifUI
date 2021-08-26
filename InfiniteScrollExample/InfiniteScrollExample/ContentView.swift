@@ -13,14 +13,11 @@ struct ContentView: View {
 
 
     var body: some View {
-        VStack{
-            HeaderView(searchText: search, tvShowVM: tvShowVM)
-            TvShowView(tvShowVM: tvShowVM)
-        }
-        
+            VStack{
+                HeaderView(searchText: search, tvShowVM: tvShowVM)
+                TvShowView(tvShowVM: tvShowVM)
+            }
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

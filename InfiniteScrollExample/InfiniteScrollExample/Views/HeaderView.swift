@@ -44,6 +44,6 @@ struct HeaderView_Previews: PreviewProvider {
 
     static var previews: some View {
         //HeaderView(searchText: $search)
-        ContentView(tvShowVM: TvShowViewModel())
+        ContentView()
     }
 }

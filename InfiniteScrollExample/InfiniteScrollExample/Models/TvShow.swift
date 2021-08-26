@@ -8,12 +8,12 @@
 import Foundation
 
 
-struct TvShow: Codable,Identifiable {
-    var original_name: String
-    var poster_path: String
-    var first_air_date: String
-    var vote_average: Double
-    var overview: String
+struct TvShow: Codable,Identifiable,Equatable {
+    var original_name: String?
+    var poster_path: String?
+    var first_air_date: String?
+    var vote_average: Double?
+    var overview: String?
     
     enum CodingKey : String {
         case original_name
@@ -37,3 +37,5 @@ extension TvShow{
         return UUID()
     }
 }
+
+
