@@ -17,7 +17,12 @@ struct ContentView: View {
                 HeaderView(searchText: search, tvShowVM: tvShowVM)
                 TvShowView(tvShowVM: tvShowVM)
             }
-            //LoaderIndicator(isAnimating: $tvShowVM.loading, style: .large).frame(width: 50, height: 50,alignment: .center)
+            if tvShowVM.tvResponse.results.count == 0  && tvShowVM.tvResponse.total_pages == 0 {
+                Text("No data found")
+            }else{
+                LoaderIndicator(isAnimating: $tvShowVM.loading, style: .large).frame(width: 50, height: 50,alignment: .center)
+
+            }
         }
     }
 }

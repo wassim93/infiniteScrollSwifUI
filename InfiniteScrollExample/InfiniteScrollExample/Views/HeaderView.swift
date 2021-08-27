@@ -30,6 +30,7 @@ struct HeaderView: View {
                 .padding(.horizontal,10)
                 .background(Color(.systemGray6))
                 .cornerRadius(10)
+                .disableAutocorrection(true)
                 .onChange(of: searchText, perform: { value in
                     tvShowVM.searchTxt(searchKey: value)
                 })
@@ -43,10 +44,7 @@ struct HeaderView: View {
 }
 
 struct HeaderView_Previews: PreviewProvider {
-    @State static var search = ""
-
     static var previews: some View {
-        //HeaderView(searchText: $search)
         ContentView()
     }
 }

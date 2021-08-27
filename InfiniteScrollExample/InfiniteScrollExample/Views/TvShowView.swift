@@ -11,16 +11,15 @@ import Kingfisher
 
 struct TvShowView: View {
     @ObservedObject var tvShowVM : TvShowViewModel
-    
-    
-    
+
     var body: some View {
         ScrollView{
             LazyVStack{
+                
                 ForEach(tvShowVM.tvResponse.results.indices,id: \.self) { indexTv in
                     let tvshow = tvShowVM.tvResponse.results[indexTv]
                     cellData(tv: tvshow, vm: tvShowVM)
-
+                    
                     if indexTv == tvShowVM.tvResponse.results.count - 1 {
                         cellLoader(vm: tvShowVM)
                     }
@@ -32,14 +31,16 @@ struct TvShowView: View {
     }
     
     
-     func cellLoader(vm:TvShowViewModel) -> some View {
+    func cellLoader(vm:TvShowViewModel) -> some View {
         VStack{
             LoaderIndicator(isAnimating: $tvShowVM.loading, style: .large).frame(width: 50, height: 50,alignment: .center)
                 .onAppear {
                     print("reach last")
-                    //DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    if vm.isSearching{
+                        vm.performSearch(searchKey: vm.sKey)
+                    }else{
                         vm.getTvShows()
-                    //}
+                    }
                 }
         }
     }
